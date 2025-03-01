@@ -1,1 +1,25 @@
-<p>add-book works!</p>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg" style="width: 600px;">
+      <h3 class="text-center mb-3"><strong>Add New Book</strong></h3>
+  
+      <form (ngSubmit)="addBook()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input type="text" id="title" class="form-control" [(ngModel)]="title" name="title" required />
+        </div>
+  
+        <div class="mb-3">
+          <label for="author" class="form-label">Author:</label>
+          <input type="text" id="author" class="form-control" [(ngModel)]="author" name="author" required />
+        </div>
+  
+        <div class="mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <textarea id="description" class="form-control" [(ngModel)]="description" name="description" rows="3"></textarea>
+        </div>
+  
+        <button type="submit" class="btn btn-success w-100">Add Book</button>
+      </form>
+    </div>
+  </div>
+  

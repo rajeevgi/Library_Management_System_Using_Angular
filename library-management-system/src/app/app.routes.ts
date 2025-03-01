@@ -12,7 +12,7 @@ export const routes: Routes = [
     // default route 
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: 'app-login',
         pathMatch: 'full'
     },
 
@@ -47,7 +47,7 @@ export const routes: Routes = [
     },
 
     {
-        path : 'app-update-book',
+        path : 'app-update-book/:id',
         component: UpdateBookComponent
     }
 ];
