@@ -30,14 +30,12 @@ exports.deleteBook = async (req, res) => {
     const deletedBook = await library.findByIdAndDelete(id);
 
     if (!deletedBook) {
-      res.status(404).json({ message: "Book not found! " });
+      return res.status(404).json({ message: "Book not found! " });
     }
 
-    res
-      .status(200)
-      .json({ message: "Book Deleted Successfully...", deletedBook });
+    return res.status(200).json({ message: "Book Deleted Successfully...", deletedBook });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error!" });
+     return res.status(500).json({ message: "Internal Server Error!" });
   }
 };
 

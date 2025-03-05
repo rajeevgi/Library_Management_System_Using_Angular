@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BookService } from '../../services/book.service';
+import { Router } from '@angular/router';
+import { Book } from '../../book';
 
 @Component({
   selector: 'app-add-book',
   imports: [FormsModule],
   templateUrl: './add-book.component.html',
-  styleUrl: './add-book.component.css'
+  styleUrl: './add-book.component.css',
 })
 export class AddBookComponent {
-
-  title: string = '';
-  author: string = '';
-  description: string = '';
+  book: Book = new Book();
+  constructor(private bookService: BookService, private router: Router) {}
 
   addBook() {
-    console.log("Title:", this.title);
-    console.log("Author:", this.author);
-    console.log("Description:", this.description);
-    // Implement book addition logic here (API call)
+    this.bookService.addBooks(this.book).subscribe((res: any) => {
+      this.book = res;
+      this.router.navigate(['/app-book-list']);
+      alert('Book Added Successfully...');
+    });
   }
 }

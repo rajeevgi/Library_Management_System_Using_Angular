@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BookService {
 
-  apiUrl = 'http://localhost:5000/api';
+  apiUrl = 'http://localhost:5000/api/books';
 
   constructor(private http : HttpClient) { }
 
@@ -15,19 +15,19 @@ export class BookService {
     return this.http.get(`${this.apiUrl}/listAllBooks`);
   }
 
-  getBookDetails(id : number) : Observable<any> {
+  getBookDetails(id : string) : Observable<any> {
     return this.http.get(`${this.apiUrl}/getBookById/${id}`);
   }
 
   addBooks(books : any) : Observable<any> {
-    return this.http.post(`${this.apiUrl}`, books);
+    return this.http.post(`${this.apiUrl}/addBook`, books);
   }
   
-  updateBook(id : number, book : any) : Observable<any> {
+  updateBook(id : string, book : any) : Observable<any> {
     return this.http.put(`${this.apiUrl}/updateBookById/${id}`,book);
   }
 
-  deleteBook(id : number) : Observable<any> {
-    return this.http.delete(`${this.apiUrl}/deleteBook/${id}`);
+  deleteBook(id : string) : Observable<any> {
+    return this.http.delete(`${this.apiUrl}/deleteBookById/${id}`);
   }
 }
