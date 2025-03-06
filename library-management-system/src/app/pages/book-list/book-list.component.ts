@@ -33,7 +33,7 @@ export class BookListComponent implements OnInit {
   }
   
   updateBook(id : string){
-   this.router.navigate(['/app-update-book']); 
+   this.router.navigate(['/app-update-book', id]); 
   }
   
 }

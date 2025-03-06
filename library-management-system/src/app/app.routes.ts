@@ -32,7 +32,7 @@ export const routes: Routes = [
     },
 
     {
-        path: 'app-add-books',
+        path: 'app-add-book',
         component: AddBookComponent
     },
 

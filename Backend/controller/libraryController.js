@@ -14,6 +14,20 @@ exports.getAllBooks = async (req, res) => {
   }
 };
 
+exports.getBookById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const getBook = await library.findById(id);
+
+    if(!getBook){
+      return res.status(404).json({ message : "Book not found!" });
+    }
+    return res.json(getBook);
+  } catch (error) {
+    return res.status(500).json({ message : "Internal Server Error!" });
+  }
+}
+
 exports.createBook = async (req, res) => {
   try {
     const addBook = new library(req.body);
